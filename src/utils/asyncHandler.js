@@ -1,7 +1,7 @@
-const asyncHandler = (fn) => {
-    return (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).
-    catch((error) => next(error));
+const asyncHandler = (fn) => {   //async error handling middleware
+    return (req, res, next) => {  //return a new function that wraps the original function
+    Promise.resolve(fn(req, res, next)).  //resolve the promise returned by the original function
+    catch((error) => next(error));   //if there's an error, pass it to the next middleware
 }
 }
 

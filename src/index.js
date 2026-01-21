@@ -7,13 +7,13 @@ dotenv.config({
     path: "./.env"
 });
 
-connectDB().then(()=>{
-    app.listen(process.env.PORT||8000, () => {
-        console.log(`Server is running on port ${process.env.PORT}`);
+connectDB().then(()=>{                  //connect to the database first
+    app.listen(process.env.PORT||8000, () => {                       //then start the server
+        console.log(`Server is running on port ${process.env.PORT}`);   //default port 8000 if PORT is not defined in .env
     });
 }).catch((error) => {
     console.error("Error connecting to the database:", error);
-    process.exit(1);
+    process.exit(1);           //exit the process with failure
 })
 
 
